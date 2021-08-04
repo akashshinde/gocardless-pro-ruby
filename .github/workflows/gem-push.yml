@@ -13,6 +13,8 @@ jobs:
         ruby: [2.5, 2.6, 2.7, '3.0']
         faraday-version: ["0.9.2", "1.0"]
     runs-on: ${{ matrix.os }}
+    env:
+      FARADAY_VERSION: ${{ matrix.faraday-version }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
@@ -23,5 +25,4 @@ jobs:
       run: bundle install
     - name: Run tests
       run: bundle exec rspec
-      env:
-        FARADAY_VERSION: ${{ matrix.faraday-version }}
+
