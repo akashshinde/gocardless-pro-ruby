@@ -3,7 +3,7 @@ name: Tests
 on:
   push:
     branches: [ master ]
-
+    
 jobs:
   test:
     strategy:
@@ -16,6 +16,8 @@ jobs:
     env:
       FARADAY_VERSION: ${{ matrix.faraday-version }}
     steps:
+    needs: 
+      - test
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
       uses: ruby/setup-ruby@v1
