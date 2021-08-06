@@ -23,12 +23,12 @@ jobs:
     steps:
       - checkout
       - run: |
-        mkdir -p $HOME/.gem
-        touch $HOME/.gem/credentials
-        chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:rubygems_api_key: ${RUBYGEMS_PUBLISH_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
-        gem push *.gem
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${RUBYGEMS_PUBLISH_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push *.gem
 workflows:
   version: 2
   tests:
