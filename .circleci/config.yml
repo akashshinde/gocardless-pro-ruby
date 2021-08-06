@@ -14,8 +14,6 @@ jobs:
       - checkout
       - run: bundle install && bundle exec rspec
   publish: &publish
-    parameters:
-      ruby-version: { type: string }
     docker:
       - image: ruby:2.6
         environment:
